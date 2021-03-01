@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "719678125454",
+    "firebase_url": "https://examplefirebase-c971f-default-rtdb.firebaseio.com",
+    "project_id": "examplefirebase-c971f",
+    "storage_bucket": "examplefirebase-c971f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719678125454:android:de19c4234a5cb8706620df",
+        "android_client_info": {
+          "package_name": "uteq.student.project.examplefirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "719678125454-gp58c1853ilm167c51gjiebgh72or5m7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCT4dNRZvdxmbIbYr4zLeRv7St_h12cv2s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "719678125454-gp58c1853ilm167c51gjiebgh72or5m7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

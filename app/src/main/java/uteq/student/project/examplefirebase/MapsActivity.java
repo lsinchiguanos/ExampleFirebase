@@ -1,4 +1,4 @@
-package uteq.student.project.examplefirebase.map;
+package uteq.student.project.examplefirebase;
 
 import androidx.fragment.app.FragmentActivity;
 
@@ -10,8 +10,6 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-
-import uteq.student.project.examplefirebase.R;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 

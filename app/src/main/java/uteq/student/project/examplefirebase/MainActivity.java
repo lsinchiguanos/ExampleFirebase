@@ -1,24 +1,20 @@
 package uteq.student.project.examplefirebase;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.OnSuccessListener;
 
-import uteq.student.project.examplefirebase.map.MapsActivity;
-
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
     private int MY_FINE_LOCATION;
     private FusedLocationProviderClient fusedLocationClient;
@@ -28,10 +24,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        btnMapa = findViewById(R.id.btnMostrar);
+        btnMapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Abrieto", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(intent);
+            }
+        });
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         getLatLonUser();
-        btnMapa = findViewById(R.id.btnMostrar);
-
     }
 
     private void getLatLonUser() {
@@ -47,17 +50,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         // Logic to handle location object
                     }
                 });
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btnMostrar:
-                Toast.makeText(MainActivity.this, "Abrieto", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-                startActivity(intent);
-                break;
-        }
     }
 
 }
