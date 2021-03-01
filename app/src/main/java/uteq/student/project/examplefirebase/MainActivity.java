@@ -4,18 +4,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.widget.Button;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import uteq.student.project.examplefirebase.map.MapsActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     private int MY_FINE_LOCATION;
     private FusedLocationProviderClient fusedLocationClient;
+    private Button btnMapa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         getLatLonUser();
+        btnMapa = findViewById(R.id.btnMostrar);
 
     }
 
@@ -40,4 +46,10 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
+
+    private void goToMap(){
+        Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
+    }
+
 }

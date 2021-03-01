@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">examplefirebase</string>
     <string name="title_activity_maps">Map</string>
+    <string name="nombre">Nombre</string>
+    <string name="longitud">Longitud</string>
+    <string name="latitud">Latitud</string>
+    <string name="guardar">Guardar</string>
+    <string name="mapa">Mapa</string>
 </resources>
