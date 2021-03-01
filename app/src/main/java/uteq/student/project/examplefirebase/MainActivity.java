@@ -8,7 +8,9 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -16,7 +18,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 
 import uteq.student.project.examplefirebase.map.MapsActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private int MY_FINE_LOCATION;
     private FusedLocationProviderClient fusedLocationClient;
@@ -47,9 +49,15 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    private void goToMap(){
-        Intent intent = new Intent(this, MapsActivity.class);
-        startActivity(intent);
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btnMostrar:
+                Toast.makeText(MainActivity.this, "Abrieto", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 
 }
