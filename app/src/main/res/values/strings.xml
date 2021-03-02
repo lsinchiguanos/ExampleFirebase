@@ -6,4 +6,7 @@
     <string name="latitud">Latitud</string>
     <string name="guardar">Guardar</string>
     <string name="mapa">Mapa</string>
+    <string name="latitudHolder">Latitud :</string>
+    <string name="longitudHolder">Longitud :</string>
+    <string name="nombreHolder">Nombre:</string>
 </resources>
