@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 
 import uteq.student.project.examplefirebase.entidades.Place;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
     private FirebaseDatabase database;
@@ -47,12 +48,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void countDownTime() {
         new CountDownTimer(5000, 1000){
-
             @Override
             public void onTick(long millisUntilFinished) {
                 onMapReady(mMap);
             }
-
             @Override
             public void onFinish() {
 
@@ -63,6 +62,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        LatLng ecuador = new LatLng(-1.0243508,-79.4663323);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ecuador,8));
         myRef = database.getReference("place");
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -87,5 +88,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             }
         });
+        googleMap.setOnMarkerClickListener(this);
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        String lat,lng,nombre;
+        nombre= marker.getSnippet();
+        lat = Double.toString(marker.getPosition().latitude);
+        lng = Double.toString(marker.getPosition().longitude);
+        Toast.makeText(this,"Nombre: " +nombre+ " "+lat +", "+lng,Toast.LENGTH_SHORT).show();
+        return false;
     }
 }
